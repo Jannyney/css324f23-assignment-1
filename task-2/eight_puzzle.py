@@ -56,17 +56,18 @@ def h3(s):
     res = 0
     board, _, _ = s
     for idx in range(0,9):
-        if board[idx] == 0:
-            if (m.ceil((idx + 1) / 3) != 3):
+        if board[idx] == 0: 
+            if (m.ceil((idx + 1) / 3) != 3):    #Check if the index is either 6, 7, or 8 (Row 3)
                 res += 1
-            if (((idx + 1) % 3) != 0):
+            if (((idx + 1) % 3) != 0):  #Check if the index is either 3, 6, or 9 (Col 3)
                 res += 1
         else:
-            if (m.ceil(board[idx] / 3) != m.ceil((idx + 1) / 3)):
+            if (m.ceil(board[idx] / 3) != m.ceil((idx + 1) / 3)): #Check row
                 res += 1
-            if ((board[idx] % 3) != ((idx + 1) % 3)):
+            if ((board[idx] % 3) != ((idx + 1) % 3)): #Check col
                 res += 1
-    # goal = (1,2,3,4,5,6,7,8,0)
+    #วิธีกลุ่มกานต์ + นัท (เอามาเทียบ performance ดู)
+    # goal = (1,2,3,4,5,6,7,8,0)  
     # for idx in range(1,9):
     #     if (goalrow := (goal[idx] - 1) // 3) != (boardrow := (board[idx]-1) // 3):
     #         res += abs(goalrow - boardrow)
