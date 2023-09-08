@@ -1,5 +1,5 @@
 import copy
-
+import math as m
 
 def initial_state():
     return ((7, 2, 4, 5, 0, 6, 8, 3, 1), 1, 1)
@@ -50,5 +50,16 @@ def h1(s):
 
 def h3(s):
     # implement this function
+    # goal = ([1, 2, 3], 
+    #         [4, 5, 6], 
+    #         [7, 8, 0])
+    res = 0
     board, _, _ = s
-    return 0
+    for idx in range(0,9):
+        if board[idx] == 0:
+            if ((m.ceil((idx + 1) / 3) != 3) or (((idx + 1) % 3) != 0)):
+                res += 1
+        else:
+            if ((m.ceil(board[idx] / 3) != m.ceil((idx + 1) / 3)) or ((board[idx] % 3) != ((idx + 1) % 3))):
+                res += 1
+    return res
