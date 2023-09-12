@@ -66,12 +66,7 @@ def h2(s):
 def h3(s):
     res = 0
     board, _, _ = s
-    # for idx in range(0, 9): #treat a board as a real matrix (index, row, and col starts from 1)
-    #     if board[idx] != 0:
-    #         if m.ceil(board[idx] / 3) != m.ceil((idx + 1) / 3):  # Check row
-    #             res += 1
-    #         if (board[idx] % 3) != ((idx + 1) % 3):  # Check col
-    #             res += 1
+
     for idx in range(0, 9): #use the original index (starts from 0)
         if board[idx] != 0:
             if ((board[idx] - 1) // 3) != (idx // 3):  # Check row
